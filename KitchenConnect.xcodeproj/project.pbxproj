@@ -24,6 +24,8 @@
 		ECD7CEE529D85CAA000DBC64 /* Oven.json in Resources */ = {isa = PBXBuildFile; fileRef = ECD7CEE329D85C30000DBC64 /* Oven.json */; };
 		ECD7CEE729D8603F000DBC64 /* RemoteServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEE629D8603F000DBC64 /* RemoteServiceTests.swift */; };
 		ECD7CEE929D8605A000DBC64 /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEE829D8605A000DBC64 /* RemoteService.swift */; };
+		ECD7CEEB29D86691000DBC64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEEA29D86691000DBC64 /* HomeViewModel.swift */; };
+		ECD7CEEE29D8677C000DBC64 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEED29D8677C000DBC64 /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		ECD7CEE329D85C30000DBC64 /* Oven.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Oven.json; sourceTree = "<group>"; };
 		ECD7CEE629D8603F000DBC64 /* RemoteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceTests.swift; sourceTree = "<group>"; };
 		ECD7CEE829D8605A000DBC64 /* RemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
+		ECD7CEEA29D86691000DBC64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ECD7CEED29D8677C000DBC64 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD7CECA29D831AD000DBC64 /* App */,
-				ECD7CEC929D831AD000DBC64 /* Views */,
+				ECD7CEEC29D866D5000DBC64 /* Views */,
 				ECD7CECD29D831AD000DBC64 /* ViewModels */,
 				ECD7CEC829D831AD000DBC64 /* Models */,
 				ECD7CECB29D831AD000DBC64 /* Services */,
@@ -198,13 +202,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		ECD7CEC929D831AD000DBC64 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		ECD7CECA29D831AD000DBC64 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +228,7 @@
 		ECD7CECD29D831AD000DBC64 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEEA29D86691000DBC64 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -238,6 +236,7 @@
 		ECD7CECE29D831CD000DBC64 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEED29D8677C000DBC64 /* HomeViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -294,6 +293,13 @@
 				ECD7CEE329D85C30000DBC64 /* Oven.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ECD7CEEC29D866D5000DBC64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */,
+				ECD7CEEB29D86691000DBC64 /* HomeViewModel.swift in Sources */,
 				ECD7CEE929D8605A000DBC64 /* RemoteService.swift in Sources */,
 				ECD7CE9D29D830C9000DBC64 /* ContentView.swift in Sources */,
 				ECD7CE9B29D830C9000DBC64 /* KitchenConnectApp.swift in Sources */,
@@ -451,6 +458,7 @@
 				ECD7CEAC29D830CB000DBC64 /* KitchenConnectTests.swift in Sources */,
 				ECD7CEE729D8603F000DBC64 /* RemoteServiceTests.swift in Sources */,
 				ECD7CEE029D856DC000DBC64 /* ApplianceTests.swift in Sources */,
+				ECD7CEEE29D8677C000DBC64 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
