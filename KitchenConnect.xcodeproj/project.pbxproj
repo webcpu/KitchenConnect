@@ -30,6 +30,8 @@
 		ECD7CEF229D874C5000DBC64 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF129D874C5000DBC64 /* Color+Custom.swift */; };
 		ECD7CEF529D89AAF000DBC64 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF429D89AAF000DBC64 /* Typography.swift */; };
 		ECD7CEF729D89C00000DBC64 /* View+NavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF629D89C00000DBC64 /* View+NavigationBarAppearance.swift */; };
+		ECD7CEF929D8AEAC000DBC64 /* RemoteControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */; };
+		ECD7CEFB29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		ECD7CEF129D874C5000DBC64 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		ECD7CEF429D89AAF000DBC64 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		ECD7CEF629D89C00000DBC64 /* View+NavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBarAppearance.swift"; sourceTree = "<group>"; };
+		ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModel.swift; sourceTree = "<group>"; };
+		ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD7CEEA29D86691000DBC64 /* HomeViewModel.swift */,
+				ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD7CEED29D8677C000DBC64 /* HomeViewModelTests.swift */,
+				ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				ECD7CE9B29D830C9000DBC64 /* KitchenConnectApp.swift in Sources */,
 				ECD7CEF529D89AAF000DBC64 /* Typography.swift in Sources */,
 				ECD7CEE229D85729000DBC64 /* Appliance.swift in Sources */,
+				ECD7CEF929D8AEAC000DBC64 /* RemoteControlViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +489,7 @@
 				ECD7CEAC29D830CB000DBC64 /* KitchenConnectTests.swift in Sources */,
 				ECD7CEE729D8603F000DBC64 /* RemoteServiceTests.swift in Sources */,
 				ECD7CEE029D856DC000DBC64 /* ApplianceTests.swift in Sources */,
+				ECD7CEFB29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift in Sources */,
 				ECD7CEEE29D8677C000DBC64 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
