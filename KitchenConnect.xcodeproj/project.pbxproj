@@ -18,6 +18,10 @@
 		ECD7CEDA29D83ECA000DBC64 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CED929D83ECA000DBC64 /* Collections */; };
 		ECD7CEDC29D83ECA000DBC64 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CEDB29D83ECA000DBC64 /* DequeModule */; };
 		ECD7CEDE29D83ECA000DBC64 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CEDD29D83ECA000DBC64 /* OrderedCollections */; };
+		ECD7CEE029D856DC000DBC64 /* ApplianceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEDF29D856DC000DBC64 /* ApplianceTests.swift */; };
+		ECD7CEE229D85729000DBC64 /* Appliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEE129D85729000DBC64 /* Appliance.swift */; };
+		ECD7CEE429D85C30000DBC64 /* Oven.json in Resources */ = {isa = PBXBuildFile; fileRef = ECD7CEE329D85C30000DBC64 /* Oven.json */; };
+		ECD7CEE529D85CAA000DBC64 /* Oven.json in Resources */ = {isa = PBXBuildFile; fileRef = ECD7CEE329D85C30000DBC64 /* Oven.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITests.swift; sourceTree = "<group>"; };
 		ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ECD7CED629D833CF000DBC64 /* Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		ECD7CEDF29D856DC000DBC64 /* ApplianceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplianceTests.swift; sourceTree = "<group>"; };
+		ECD7CEE129D85729000DBC64 /* Appliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appliance.swift; sourceTree = "<group>"; };
+		ECD7CEE329D85C30000DBC64 /* Oven.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Oven.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +135,10 @@
 		ECD7CEAA29D830CB000DBC64 /* KitchenConnectTests */ = {
 			isa = PBXGroup;
 			children = (
-				ECD7CED029D831CD000DBC64 /* Helpers */,
 				ECD7CECF29D831CD000DBC64 /* Models */,
 				ECD7CED329D831CD000DBC64 /* Services */,
 				ECD7CECE29D831CD000DBC64 /* ViewModels */,
+				ECD7CED029D831CD000DBC64 /* Helpers */,
 				ECD7CEAB29D830CB000DBC64 /* KitchenConnectTests.swift */,
 			);
 			path = KitchenConnectTests;
@@ -182,6 +189,7 @@
 		ECD7CEC829D831AD000DBC64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEE129D85729000DBC64 /* Appliance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 		ECD7CECF29D831CD000DBC64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEDF29D856DC000DBC64 /* ApplianceTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,6 +285,7 @@
 		ECD7CED529D83324000DBC64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEE329D85C30000DBC64 /* Oven.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -394,6 +404,7 @@
 			files = (
 				ECD7CEA229D830CB000DBC64 /* Preview Assets.xcassets in Resources */,
 				ECD7CE9F29D830CB000DBC64 /* Assets.xcassets in Resources */,
+				ECD7CEE429D85C30000DBC64 /* Oven.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +412,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD7CEE529D85CAA000DBC64 /* Oven.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +433,7 @@
 				ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */,
 				ECD7CE9D29D830C9000DBC64 /* ContentView.swift in Sources */,
 				ECD7CE9B29D830C9000DBC64 /* KitchenConnectApp.swift in Sources */,
+				ECD7CEE229D85729000DBC64 /* Appliance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7CEAC29D830CB000DBC64 /* KitchenConnectTests.swift in Sources */,
+				ECD7CEE029D856DC000DBC64 /* ApplianceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

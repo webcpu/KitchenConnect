@@ -1,0 +1,17 @@
+{
+    "applianceId": "12CFD",
+    "applianceData": {
+        "applianceName": "My oven",
+    },
+    "properties": {
+        "doorState": "CLOSED",
+        "temperatureRepresentation": "CELSIUS",
+        "targetTemperature": 80,
+        "program": "GRILL",
+        "startTime": -1,
+        "targetDuration": 0,
+        "runningTime": 0,
+        "applianceState": "READY_TO_START",
+        "displayTemperature": 24
+    }
+}
