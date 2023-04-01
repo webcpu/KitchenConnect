@@ -10,7 +10,7 @@ import Foundation
 struct Appliance: Codable {
     let applianceId: String
     let applianceData: ApplianceData
-    let properties: Properties
+    var properties: Properties
 }
 
 extension Appliance {
@@ -29,6 +29,44 @@ extension Appliance {
     var displayTemperature: Int {
         return properties.displayTemperature
     }
+    
+    enum ApplianceAction {
+            case turnOn
+            case turnOff
+            case changeProgram(Program)
+            case changeTemperature(Int)
+        }
+        
+    mutating func performAction(_ action: ApplianceAction) {
+        switch action {
+        case .turnOn:
+            properties.applianceState = .running
+        case .turnOff:
+            properties.applianceState = .readyToStart
+        case .changeProgram(let newProgram):
+            properties.program = newProgram
+        case .changeTemperature(let newTemperature):
+            properties.targetTemperature = newTemperature
+        }
+    }
+    
+    func withUpdatedProgram(_ newProgram: Program) -> Appliance {
+        var updatedAppliance = self
+        updatedAppliance.properties.program = newProgram
+        return updatedAppliance
+    }
+    
+    func withUpdatedTemperature(_ newTemperature: Int) -> Appliance {
+        var updatedAppliance = self
+        updatedAppliance.properties.targetTemperature = newTemperature
+        return updatedAppliance
+    }
+    
+    func withUpdatedState(_ newState: ApplianceState) -> Appliance {
+        var updatedAppliance = self
+        updatedAppliance.properties.applianceState = newState
+        return updatedAppliance
+    }
 }
 
 struct ApplianceData: Codable {
@@ -38,12 +76,12 @@ struct ApplianceData: Codable {
 struct Properties: Codable {
     let doorState: String
     let temperatureRepresentation: String
-    let targetTemperature: Int
-    let program: Program
+    var targetTemperature: Int
+    var program: Program
     let startTime: Int
     let targetDuration: Int
     let runningTime: Int
-    let applianceState: ApplianceState
+    var applianceState: ApplianceState
     let displayTemperature: Int
 }
 
