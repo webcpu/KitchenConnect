@@ -14,6 +14,10 @@
 		ECD7CEAC29D830CB000DBC64 /* KitchenConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEAB29D830CB000DBC64 /* KitchenConnectTests.swift */; };
 		ECD7CEB629D830CB000DBC64 /* KitchenConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */; };
 		ECD7CEB829D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */; };
+		ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CED629D833CF000DBC64 /* Injection.swift */; };
+		ECD7CEDA29D83ECA000DBC64 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CED929D83ECA000DBC64 /* Collections */; };
+		ECD7CEDC29D83ECA000DBC64 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CEDB29D83ECA000DBC64 /* DequeModule */; };
+		ECD7CEDE29D83ECA000DBC64 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CEDD29D83ECA000DBC64 /* OrderedCollections */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,7 @@
 		ECD7CEB129D830CB000DBC64 /* KitchenConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KitchenConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITests.swift; sourceTree = "<group>"; };
 		ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECD7CED629D833CF000DBC64 /* Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD7CEDA29D83ECA000DBC64 /* Collections in Frameworks */,
+				ECD7CEDC29D83ECA000DBC64 /* DequeModule in Frameworks */,
+				ECD7CEDE29D83ECA000DBC64 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +102,16 @@
 		ECD7CE9929D830C9000DBC64 /* KitchenConnect */ = {
 			isa = PBXGroup;
 			children = (
-				ECD7CE9A29D830C9000DBC64 /* KitchenConnectApp.swift */,
+				ECD7CECA29D831AD000DBC64 /* App */,
+				ECD7CEC929D831AD000DBC64 /* Views */,
+				ECD7CECD29D831AD000DBC64 /* ViewModels */,
+				ECD7CEC829D831AD000DBC64 /* Models */,
+				ECD7CECB29D831AD000DBC64 /* Services */,
+				ECD7CEC529D831AC000DBC64 /* Helpers */,
+				ECD7CED529D83324000DBC64 /* Resources */,
+				ECD7CEC429D831AC000DBC64 /* Assets */,
+				ECD7CECC29D831AD000DBC64 /* Supporting Files */,
 				ECD7CE9C29D830C9000DBC64 /* ContentView.swift */,
-				ECD7CE9E29D830CB000DBC64 /* Assets.xcassets */,
 				ECD7CEA029D830CB000DBC64 /* Preview Content */,
 			);
 			path = KitchenConnect;
@@ -113,6 +128,10 @@
 		ECD7CEAA29D830CB000DBC64 /* KitchenConnectTests */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CED029D831CD000DBC64 /* Helpers */,
+				ECD7CECF29D831CD000DBC64 /* Models */,
+				ECD7CED329D831CD000DBC64 /* Services */,
+				ECD7CECE29D831CD000DBC64 /* ViewModels */,
 				ECD7CEAB29D830CB000DBC64 /* KitchenConnectTests.swift */,
 			);
 			path = KitchenConnectTests;
@@ -121,10 +140,144 @@
 		ECD7CEB429D830CB000DBC64 /* KitchenConnectUITests */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CED429D831DA000DBC64 /* Views */,
 				ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */,
 				ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */,
 			);
 			path = KitchenConnectUITests;
+			sourceTree = "<group>";
+		};
+		ECD7CEC429D831AC000DBC64 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CE9E29D830CB000DBC64 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		ECD7CEC529D831AC000DBC64 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CEC629D831AC000DBC64 /* Extensions */,
+				ECD7CEC729D831AC000DBC64 /* Utilities */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ECD7CEC629D831AC000DBC64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CED629D833CF000DBC64 /* Injection.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECD7CEC729D831AC000DBC64 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ECD7CEC829D831AD000DBC64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECD7CEC929D831AD000DBC64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECD7CECA29D831AD000DBC64 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CE9A29D830C9000DBC64 /* KitchenConnectApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ECD7CECB29D831AD000DBC64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ECD7CECC29D831AD000DBC64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECD7CECD29D831AD000DBC64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ECD7CECE29D831CD000DBC64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ECD7CECF29D831CD000DBC64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECD7CED029D831CD000DBC64 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CED129D831CD000DBC64 /* Extensions */,
+				ECD7CED229D831CD000DBC64 /* Utilities */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ECD7CED129D831CD000DBC64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECD7CED229D831CD000DBC64 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ECD7CED329D831CD000DBC64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ECD7CED429D831DA000DBC64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECD7CED529D83324000DBC64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +296,11 @@
 			dependencies = (
 			);
 			name = KitchenConnect;
+			packageProductDependencies = (
+				ECD7CED929D83ECA000DBC64 /* Collections */,
+				ECD7CEDB29D83ECA000DBC64 /* DequeModule */,
+				ECD7CEDD29D83ECA000DBC64 /* OrderedCollections */,
+			);
 			productName = KitchenConnect;
 			productReference = ECD7CE9729D830C9000DBC64 /* KitchenConnect.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +373,9 @@
 				Base,
 			);
 			mainGroup = ECD7CE8E29D830C9000DBC64;
+			packageReferences = (
+				ECD7CED829D83ECA000DBC64 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = ECD7CE9829D830C9000DBC64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */,
 				ECD7CE9D29D830C9000DBC64 /* ContentView.swift in Sources */,
 				ECD7CE9B29D830C9000DBC64 /* KitchenConnectApp.swift in Sources */,
 			);
@@ -430,6 +592,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ly.KitchenConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -459,6 +625,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ly.KitchenConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -583,6 +753,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECD7CED829D83ECA000DBC64 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECD7CED929D83ECA000DBC64 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECD7CED829D83ECA000DBC64 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		ECD7CEDB29D83ECA000DBC64 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECD7CED829D83ECA000DBC64 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		ECD7CEDD29D83ECA000DBC64 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECD7CED829D83ECA000DBC64 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECD7CE8F29D830C9000DBC64 /* Project object */;
 }
