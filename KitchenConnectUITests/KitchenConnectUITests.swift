@@ -8,34 +8,44 @@
 import XCTest
 
 final class KitchenConnectUITests: XCTestCase {
-
+    
+    var app: XCUIApplication!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        
+        app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testApplianceList() throws {
+        // Check if the home view is displayed
+        let homeView = app.navigationBars["Home"]
+        XCTAssertTrue(homeView.exists, "Home view is not displayed")
+        
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        // Check if an appliance cell is displayed
+        let applianceButton = app.buttons.matching(identifier: "appliance-12CFD").element(boundBy: 0)
+
+        // Wait for the appliance cell to exist with a timeout
+        let buttonExists = applianceButton.waitForExistence(timeout: 5)
+        
+        // Check if an appliance cell is displayed
+
+        XCTAssertTrue(buttonExists, "Appliance cell is not displayed")
+
+        // Check if appliance name is displayed
+        let applianceName = applianceButton.staticTexts["applianceName"]
+        XCTAssertTrue(applianceName.exists, "Appliance name is not displayed")
+    }
+    
+    func testApplianceNavigation() throws {
+        // Tap on the appliance cell
+        let applianceButton = app.buttons.matching(identifier: "appliance-12CFD").element(boundBy: 0)
+        applianceButton.tap()
+        
+        // Check if the RemoteControlView is displayed
+        let remoteControlView = app.staticTexts.matching(identifier: "remote-control-appliance-12CFD").element(boundBy: 0) 
+        XCTAssertTrue(remoteControlView.exists, "Remote Control view is not displayed")
     }
 }

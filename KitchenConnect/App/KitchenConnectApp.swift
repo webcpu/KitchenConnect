@@ -15,7 +15,7 @@ struct KitchenConnectApp: App {
     /// The body property defines the main `Scene` of the app, which displays the `ContentView` inside a `WindowGroup`.
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
