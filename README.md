@@ -12,8 +12,6 @@ The project follows the MVVM architecture pattern and uses dependency injection 
 
 `RemoteControlView` is a struct that displays the remote control for a single appliance managed by `RemoteControlViewModel`.
 
-Overall, the project uses MVVM architecture to separate concerns and facilitate testability. Dependency injection is used to allow for flexibility in the implementation of the remote service.
-
 ## ViewModels
 
 ### HomeViewModel
@@ -41,3 +39,5 @@ Overall, the project uses MVVM architecture to separate concerns and facilitate 
 ### RemoteServiceProtocol
 
 `RemoteServiceProtocol` is a protocol defining the methods required for a remote service. It is implemented by the `RemoteService` class.
+
+Overall, the project uses MVVM architecture to separate concerns and facilitate testability. Dependency injection is used to allow for flexibility in the implementation of the remote service.
