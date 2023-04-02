@@ -12,7 +12,7 @@
 		ECD7CE9F29D830CB000DBC64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD7CE9E29D830CB000DBC64 /* Assets.xcassets */; };
 		ECD7CEA229D830CB000DBC64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD7CEA129D830CB000DBC64 /* Preview Assets.xcassets */; };
 		ECD7CEAC29D830CB000DBC64 /* KitchenConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEAB29D830CB000DBC64 /* KitchenConnectTests.swift */; };
-		ECD7CEB629D830CB000DBC64 /* KitchenConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */; };
+		ECD7CEB629D830CB000DBC64 /* HomeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEB529D830CB000DBC64 /* HomeViewUITests.swift */; };
 		ECD7CEB829D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */; };
 		ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CED629D833CF000DBC64 /* Injection.swift */; };
 		ECD7CEDA29D83ECA000DBC64 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = ECD7CED929D83ECA000DBC64 /* Collections */; };
@@ -32,6 +32,8 @@
 		ECD7CEF729D89C00000DBC64 /* View+NavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF629D89C00000DBC64 /* View+NavigationBarAppearance.swift */; };
 		ECD7CEF929D8AEAC000DBC64 /* RemoteControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */; };
 		ECD7CEFB29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */; };
+		ECD7CEFF29D974A8000DBC64 /* NavigationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEFE29D974A8000DBC64 /* NavigationButtons.swift */; };
+		ECD7CF0129D979F4000DBC64 /* RemoteControlViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CF0029D979F4000DBC64 /* RemoteControlViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,7 @@
 		ECD7CEA729D830CB000DBC64 /* KitchenConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KitchenConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD7CEAB29D830CB000DBC64 /* KitchenConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectTests.swift; sourceTree = "<group>"; };
 		ECD7CEB129D830CB000DBC64 /* KitchenConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KitchenConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITests.swift; sourceTree = "<group>"; };
+		ECD7CEB529D830CB000DBC64 /* HomeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUITests.swift; sourceTree = "<group>"; };
 		ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenConnectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ECD7CED629D833CF000DBC64 /* Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		ECD7CEDF29D856DC000DBC64 /* ApplianceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplianceTests.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		ECD7CEF629D89C00000DBC64 /* View+NavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBarAppearance.swift"; sourceTree = "<group>"; };
 		ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModel.swift; sourceTree = "<group>"; };
 		ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModelTests.swift; sourceTree = "<group>"; };
+		ECD7CEFE29D974A8000DBC64 /* NavigationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtons.swift; sourceTree = "<group>"; };
+		ECD7CF0029D979F4000DBC64 /* RemoteControlViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				ECD7CED429D831DA000DBC64 /* Views */,
-				ECD7CEB529D830CB000DBC64 /* KitchenConnectUITests.swift */,
 				ECD7CEB729D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift */,
 			);
 			path = KitchenConnectUITests;
@@ -299,6 +302,8 @@
 		ECD7CED429D831DA000DBC64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7CEB529D830CB000DBC64 /* HomeViewUITests.swift */,
+				ECD7CF0029D979F4000DBC64 /* RemoteControlViewUITests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				ECD7CE9C29D830C9000DBC64 /* HomeView.swift */,
-				ECD7CEEF29D86BBF000DBC64 /* RemoteControlView.swift */,
+				ECD7CEFD29D9746E000DBC64 /* RemoteControlVIew */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +331,15 @@
 				ECD7CEF429D89AAF000DBC64 /* Typography.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		ECD7CEFD29D9746E000DBC64 /* RemoteControlVIew */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7CEEF29D86BBF000DBC64 /* RemoteControlView.swift */,
+				ECD7CEFE29D974A8000DBC64 /* NavigationButtons.swift */,
+			);
+			path = RemoteControlVIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7CEF729D89C00000DBC64 /* View+NavigationBarAppearance.swift in Sources */,
+				ECD7CEFF29D974A8000DBC64 /* NavigationButtons.swift in Sources */,
 				ECD7CED729D833CF000DBC64 /* Injection.swift in Sources */,
 				ECD7CEEB29D86691000DBC64 /* HomeViewModel.swift in Sources */,
 				ECD7CEF229D874C5000DBC64 /* Color+Custom.swift in Sources */,
@@ -499,7 +514,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7CEB829D830CB000DBC64 /* KitchenConnectUITestsLaunchTests.swift in Sources */,
-				ECD7CEB629D830CB000DBC64 /* KitchenConnectUITests.swift in Sources */,
+				ECD7CF0129D979F4000DBC64 /* RemoteControlViewUITests.swift in Sources */,
+				ECD7CEB629D830CB000DBC64 /* HomeViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
