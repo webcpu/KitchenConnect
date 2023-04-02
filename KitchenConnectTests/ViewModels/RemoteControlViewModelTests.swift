@@ -17,7 +17,7 @@ final class RemoteControlViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         if let appliance = createSampleAppliance() {
-            viewModel = RemoteControlViewModel(appliance: appliance)
+            viewModel = RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared)
         }
     }
     

@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+// MARK: - HomeView
 struct HomeView: View {
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
     
-    @StateObject var viewModel = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel(remoteService: RemoteService.shared)
     
     init() {
         initNavigationBarAppearance()
@@ -29,6 +30,7 @@ struct HomeView: View {
     }
 }
 
+// MARK: - ApplianceListView
 struct ApplianceListView: View {
     @ObservedObject var viewModel: HomeViewModel
 
@@ -45,6 +47,7 @@ struct ApplianceListView: View {
     }
 }
 
+// MARK: - ApplianceNavigationLink
 struct ApplianceNavigationLink: View {
     let appliance: Appliance
     
@@ -58,6 +61,7 @@ struct ApplianceNavigationLink: View {
     }
 }
 
+// MARK: - ApplianceCellView
 struct ApplianceCellView : View {
     var appliance: Appliance
     
@@ -91,6 +95,7 @@ struct ApplianceCellView : View {
     }
 }
 
+// MARK: - CustomBackgroundViewModifier
 extension View {
     func customBackground() -> some View {
         self.modifier(CustomBackgroundViewModifier())
@@ -106,6 +111,7 @@ struct CustomBackgroundViewModifier: ViewModifier {
     }
 }
 
+// MARK: - Previews
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
