@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - RemoteControlView
+
 /// A view that displays the remote control for an appliance.
 ///
 /// This view displays a header showing the name and state of the appliance, as well as a set of controls
@@ -26,7 +28,7 @@ struct RemoteControlView: View {
     ///
     /// - Parameter appliance: The appliance to control.
     init(appliance: Appliance) {
-        _viewModel = StateObject(wrappedValue: RemoteControlViewModel(appliance: appliance))
+        _viewModel = StateObject(wrappedValue: RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared))
     }
 
     var body: some View {
@@ -61,6 +63,8 @@ struct RemoteControlView: View {
         .eraseToAnyView()
     }
 }
+
+// MARK: - ControlHeaderView
 
 /// A view that displays the header for a remote control.
 ///
@@ -99,6 +103,8 @@ struct ControlHeaderView: View {
     }
 }
 
+// MARK: - ControlsView
+
 /// A view that displays the controls for a remote control.
 ///
 /// This view shows two `ControlView` views side by side. Each `ControlView` represents a different
@@ -135,6 +141,7 @@ struct ControlsView: View {
     }
 }
 
+// MARK: - ControlView
 
 struct ControlView: View {
     let appliance: Appliance
@@ -167,6 +174,8 @@ struct ControlView: View {
     }
 }
 
+// MARK: - SwitchButton
+
 struct SwitchButton: View {
     let text: String
     let action: () -> Void
@@ -179,6 +188,8 @@ struct SwitchButton: View {
         .padding(.horizontal, 75)
     }
 }
+
+// MARK: - PrimaryButtonStyle
 
 struct PrimaryButtonStyle: ViewModifier {
     func body(content: Content) -> some View {

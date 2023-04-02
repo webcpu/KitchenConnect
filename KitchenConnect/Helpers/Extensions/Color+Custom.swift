@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import SwiftUI
 
+// MARK: - Color Extensions
+
 extension Color {
     // Define your custom colors here
     static let customBackground = Color(hex: "#F5F5F5")
@@ -23,6 +25,7 @@ extension Color {
 }
 
 extension Color {
+    /// Convert a Color object to a UIColor object.
     var uiColor: UIColor {
         let components: [CGFloat] = self.cgColor!.components!
         let color = UIColor(red: CGFloat(components[0]), green: CGFloat(components[1]), blue: CGFloat(components[2]), alpha: CGFloat(components[3]))
@@ -31,6 +34,8 @@ extension Color {
 }
 
 extension Color {
+    /// Initialize a Color object from a hexadecimal color string.
+    /// - Parameter hex: A hexadecimal color string, with an optional leading "#".
     init?(hex: String) {
         let r, g, b: Double
         

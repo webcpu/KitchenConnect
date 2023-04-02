@@ -8,6 +8,9 @@
 import Foundation
 import Combine
 
+// MARK: - RemoteServiceError
+
+/// An enumeration representing the possible errors that can occur when interacting with the remote service.
 enum RemoteServiceError: LocalizedError {
     case invalidURL
     case invalidResponse
@@ -28,15 +31,25 @@ enum RemoteServiceError: LocalizedError {
     }
 }
 
+// MARK: - RemoteServiceProtocol
+
+/// A protocol defining the methods required for a remote service.
 protocol RemoteServiceProtocol {
+    func fetchAppliance(_ applianceId: String) -> AnyPublisher<Appliance, Error>
     func performAction(_ action: ApplianceAction, for appliance: Appliance) -> AnyPublisher<Appliance, Error>
 }
 
+// MARK: - RemoteService
+
+/// A class that handles communication with a remote service to manage appliances.
 class RemoteService: RemoteServiceProtocol {
     static let shared = RemoteService()
-    
     private init() {}
     
+    /// Fetches an appliance with a given ID.
+    ///
+    /// - Parameter applianceId: The ID of the appliance to fetch.
+    /// - Returns: A publisher that emits the fetched appliance or an error.
     func fetchAppliance(_ applianceId: String) -> AnyPublisher<Appliance, Error> {
         guard let url = Bundle.main.url(forResource: "Oven", withExtension: "json") else {
             return Fail(error: RemoteServiceError.invalidURL).eraseToAnyPublisher()
@@ -52,43 +65,54 @@ class RemoteService: RemoteServiceProtocol {
             .eraseToAnyPublisher()
     }
     
+    /// Performs an action on an appliance and returns the updated appliance.
+    ///
+    /// - Parameters:
+    ///   - action: The action to perform on the appliance.
+    ///   - appliance: The appliance to perform the action on.
+    /// - Returns: A publisher that emits the updated appliance or an error.
     func performAction(_ action: ApplianceAction, for appliance: Appliance) -> AnyPublisher<Appliance, Error> {
-        // Implement your logic here to perform the action
-        // You can use a switch statement to determine the appropriate action
-        
-        var appliance = appliance
         switch action {
         case .updateProgram(let newProgram):
-            // Perform the update program action
-            return Future<Appliance, Error> { promise in
-                // Update the appliance's program
-                // Replace this with the actual API call or async task
-                appliance.properties.program = newProgram
-                promise(.success(appliance))
-            }.eraseToAnyPublisher()
-            
+            return updateProgram(newProgram, for: appliance)
         case .updateTemperature(let newTemperature):
-            // Perform the update temperature action
-            return Future<Appliance, Error> { promise in
-                // Update the appliance's temperature
-                // Replace this with the actual API call or async task
-                appliance.properties.targetTemperature = newTemperature
-                promise(.success(appliance))
-            }.eraseToAnyPublisher()
-            
+            return updateTemperature(newTemperature, for: appliance)
         case .toggleState:
-            // Perform the toggle appliance state action
-            print("toggleState")
-            return Future<Appliance, Error> { promise in
-                // Toggle the appliance's state
-                // Replace this with the actual API call or async task
-                appliance.properties.applianceState = appliance.properties.applianceState == .readyToStart ? .running : .readyToStart
-                promise(.success(appliance))
-            }.eraseToAnyPublisher()
+            return toggleState(for: appliance)
         }
+    }
+
+    func updateProgram(_ newProgram: Program, for appliance: Appliance) -> AnyPublisher<Appliance, Error> {
+        return Future<Appliance, Error> { promise in
+            // Update the appliance's program
+            var modifiedAppliance = appliance
+            modifiedAppliance.properties.program = newProgram
+            promise(.success(modifiedAppliance))
+        }.eraseToAnyPublisher()
+    }
+
+    func updateTemperature(_ newTemperature: Int, for appliance: Appliance) -> AnyPublisher<Appliance, Error> {
+        return Future<Appliance, Error> { promise in
+            // Update the appliance's temperature
+            var modifiedAppliance = appliance
+            modifiedAppliance.properties.targetTemperature = newTemperature
+            promise(.success(modifiedAppliance))
+        }.eraseToAnyPublisher()
+    }
+
+    func toggleState(for appliance: Appliance) -> AnyPublisher<Appliance, Error> {
+        return Future<Appliance, Error> { promise in
+            // Toggle the appliance's state
+            var modifiedAppliance = appliance
+            modifiedAppliance.properties.applianceState = modifiedAppliance.properties.applianceState == .readyToStart ? .running : .readyToStart
+            promise(.success(modifiedAppliance))
+        }.eraseToAnyPublisher()
     }
 }
 
+// MARK: - ApplianceAction
+
+/// An enumeration representing the possible actions that can be performed on an appliance.
 enum ApplianceAction {
     case updateProgram(Program)
     case updateTemperature(Int)

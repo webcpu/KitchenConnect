@@ -14,7 +14,7 @@ final class HomeViewModelTests: XCTestCase {
     var cancellables: Set<AnyCancellable> = []
     
     func testFetchAppliances() {
-        let viewModel = HomeViewModel()
+        let viewModel = HomeViewModel(remoteService: RemoteService.shared)
         let expectation = XCTestExpectation(description: "Fetch appliances successfully")
         
         viewModel.$appliances

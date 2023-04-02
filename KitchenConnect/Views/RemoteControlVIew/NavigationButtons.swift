@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - BackButton
+
 struct BackButton: View {
     let title: String
     let action: () -> Void
@@ -34,6 +36,7 @@ struct BackButton: View {
     }
 }
 
+// MARK: - MoreButton
 struct MoreButton: View {
     let title: String
     let foregroundColor: Color
