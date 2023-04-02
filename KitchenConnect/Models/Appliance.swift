@@ -26,8 +26,11 @@ extension Appliance {
         return properties.program
     }
     
-    var displayTemperature: Int {
-        return properties.displayTemperature
+    var displayTemperatureWithUnit: String {
+        let celsiusSymbol = "\u{2103}" // Celsius degree symbol
+        let fahrenheitSymbol = "\u{2109}" // Fahrenheit degree symbol
+        let symbol = properties.temperatureRepresentation != "CELSIUS" ? fahrenheitSymbol : celsiusSymbol
+        return "\(properties.displayTemperature)\(symbol)"
     }
     
     enum ApplianceAction {

@@ -45,7 +45,7 @@ final class ApplianceTests: XCTestCase {
             XCTAssertEqual(appliance.name, "My oven")
             XCTAssertEqual(appliance.state, "Off")
             XCTAssertEqual(appliance.program.rawValue, "GRILL")
-            XCTAssertEqual(appliance.displayTemperature, 24)
+            XCTAssertEqual(appliance.displayTemperatureWithUnit, "24"+"\u{2103}")
         } catch {
             XCTFail("Failed to decode Appliance from JSON: \(error)")
         }

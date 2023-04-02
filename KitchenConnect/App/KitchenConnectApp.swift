@@ -16,6 +16,7 @@ struct KitchenConnectApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .preferredColorScheme(.light) // Disable dark theme
         }
     }
 }

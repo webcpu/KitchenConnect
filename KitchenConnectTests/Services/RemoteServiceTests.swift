@@ -13,6 +13,7 @@ final class RemoteServiceTests: XCTestCase {
     var cancellables: Set<AnyCancellable> = []
 
     func testFetchApplianceSuccess() {
+        let celsiusSymbol = "\u{2103}" // Celsius degree symbol
         let remoteService = RemoteService.shared
         let expectation = XCTestExpectation(description: "Fetch appliance data successfully")
 
@@ -30,7 +31,7 @@ final class RemoteServiceTests: XCTestCase {
                 XCTAssertEqual(appliance.name, "My oven")
                 XCTAssertEqual(appliance.state, "Off")
                 XCTAssertEqual(appliance.program.rawValue, "GRILL")
-                XCTAssertEqual(appliance.displayTemperature, 24)
+                XCTAssertEqual(appliance.displayTemperatureWithUnit, "24"+celsiusSymbol)
             }
             .store(in: &cancellables)
 
