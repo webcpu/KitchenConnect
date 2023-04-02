@@ -10,13 +10,13 @@ import OrderedCollections
 import Combine
 
 // MARK: - HomeViewModel
+
 ///
 /// A view model for the `HomeView`.
 ///
 /// This class handles fetching appliance data and managing the state of the view. It contains a dictionary
 /// of appliances, which is updated when appliances are fetched from the remote service.
 ///
-
 class HomeViewModel: ObservableObject {
     
     // MARK: - Properties

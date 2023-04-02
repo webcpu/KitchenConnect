@@ -8,6 +8,8 @@
 import SwiftUI
 
 // MARK: - HomeView
+
+/// A SwiftUI view that represents the home screen, displaying a list of appliances.
 struct HomeView: View {
 #if DEBUG
     @ObservedObject var iO = injectionObserver
@@ -31,6 +33,8 @@ struct HomeView: View {
 }
 
 // MARK: - ApplianceListView
+
+/// A SwiftUI view that displays a list of appliances.
 struct ApplianceListView: View {
     @ObservedObject var viewModel: HomeViewModel
 
@@ -48,6 +52,8 @@ struct ApplianceListView: View {
 }
 
 // MARK: - ApplianceNavigationLink
+
+/// A SwiftUI view that represents a navigation link for an individual appliance.
 struct ApplianceNavigationLink: View {
     let appliance: Appliance
     
@@ -62,11 +68,12 @@ struct ApplianceNavigationLink: View {
 }
 
 // MARK: - ApplianceCellView
+
+/// A SwiftUI view that represents an individual appliance cell.
 struct ApplianceCellView : View {
     var appliance: Appliance
     
     var body: some View {
-        //Card - Home Product
         VStack(spacing: 0) {
             Text(appliance.name)
                 .subtitle2()
@@ -96,7 +103,9 @@ struct ApplianceCellView : View {
 }
 
 // MARK: - CustomBackgroundViewModifier
+
 extension View {
+    /// Adds a custom background to a SwiftUI view.
     func customBackground() -> some View {
         self.modifier(CustomBackgroundViewModifier())
     }
