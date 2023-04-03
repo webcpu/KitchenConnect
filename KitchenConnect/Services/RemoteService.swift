@@ -16,7 +16,7 @@ enum RemoteServiceError: LocalizedError {
     case invalidResponse
     case invalidData
     case updateFailed
-    
+
     var errorDescription: String? {
         switch self {
         case .invalidURL:
@@ -45,7 +45,7 @@ protocol RemoteServiceProtocol {
 class RemoteService: RemoteServiceProtocol {
     static let shared = RemoteService()
     private init() {}
-    
+
     /// Fetches an appliance with a given ID.
     ///
     /// - Parameter applianceId: The ID of the appliance to fetch.
@@ -54,7 +54,7 @@ class RemoteService: RemoteServiceProtocol {
         guard let url = Bundle.main.url(forResource: "Oven", withExtension: "json") else {
             return Fail(error: RemoteServiceError.invalidURL).eraseToAnyPublisher()
         }
-        
+
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: Appliance.self, decoder: JSONDecoder())
@@ -64,7 +64,7 @@ class RemoteService: RemoteServiceProtocol {
             }
             .eraseToAnyPublisher()
     }
-    
+
     /// Performs an action on an appliance and returns the updated appliance.
     ///
     /// - Parameters:

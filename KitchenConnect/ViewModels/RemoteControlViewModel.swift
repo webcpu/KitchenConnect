@@ -18,26 +18,26 @@ import Combine
 /// when a response is received from the remote service.
 /// 
 class RemoteControlViewModel: ObservableObject {
-    
+
     // MARK: - Properties
 
     /// The appliance being controlled.
     @Published var appliance: Appliance
-    
+
     /// The selected program for the appliance.
     @Published var selectedProgram: Program
-    
+
     /// The target temperature for the appliance.
     @Published var targetTemperature: Int
-    
+
     // A property to store the error that occurred. When an error occurs, it is assigned to this property
     // so that it can be displayed to the user.
     @Published var error: Error?
-    
+
     // A Boolean property that determines whether the error alert is currently presented or not.
     // This property is used to control the presentation of the error alert view in SwiftUI.
     @Published var isErrorAlertPresented = false
-    
+
     /// A set of `AnyCancellable` objects for managing Combine subscriptions.
     var cancellables: Set<AnyCancellable> = []
 
@@ -79,7 +79,7 @@ class RemoteControlViewModel: ObservableObject {
                 self.selectedProgram = self.appliance.properties.program})
             .store(in: &cancellables)
     }
-    
+
     /// Updates the target temperature of the appliance to the specified new temperature.
     ///
     /// - Parameter newTemperature: The new target temperature for the appliance.
@@ -99,7 +99,7 @@ class RemoteControlViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-    
+
     /// Toggles the state of the appliance between on and off.
     func toggleApplianceState() {
         remoteService.performAction(.toggleState, for: appliance)
@@ -116,7 +116,7 @@ class RemoteControlViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-    
+
     /// Shows an error alert view to the user.
     ///
     /// This method updates the `error` property with the given error parameter, and sets the

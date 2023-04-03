@@ -13,19 +13,18 @@ import Combine
 final class RemoteControlViewModelTests: XCTestCase {
     var viewModel: RemoteControlViewModel!
     var cancellables: Set<AnyCancellable> = []
-    
+
     override func setUp() {
         super.setUp()
-        if let appliance = createSampleAppliance() {
-            viewModel = RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared)
-        }
+        let appliance = createSampleAppliance()!
+        viewModel = RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared)
     }
-    
+
     override func tearDown() {
         viewModel = nil
         super.tearDown()
     }
-    
+
     func testChangeProgram() {
         XCTAssertNotNil(viewModel)
         let expectation = XCTestExpectation(description: "Change program")
@@ -80,20 +79,19 @@ final class RemoteControlViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-    
     // Helper method to create a sample Appliance
     private func createSampleAppliance() -> Appliance? {
         let data = loadJSONDataFromFile()
         let decoder = JSONDecoder()
         return (try? decoder.decode(Appliance.self, from: data))
     }
-    
+
     func loadJSONDataFromFile() -> Data {
         let bundle = Bundle(for: type(of: self))
         guard let url = bundle.url(forResource: "Oven", withExtension: "json") else {
             fatalError("Failed to locate Oven.json in bundle.")
         }
-        
+
         do {
             let data = try Data(contentsOf: url)
             return data

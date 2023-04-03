@@ -18,16 +18,16 @@ import Combine
 /// of appliances, which is updated when appliances are fetched from the remote service.
 ///
 class HomeViewModel: ObservableObject, ErrorHandlable {
-    
+
     // MARK: - Properties
 
     /// An ordered dictionary of appliances, with the appliance ID as the key.
     @Published var appliances: OrderedDictionary<String, Appliance> = [:]
-    
+
     // A property to store the error that occurred. When an error occurs, it is assigned to this property
     // so that it can be displayed to the user.
     @Published var error: Error?
-    
+
     // A Boolean property that determines whether the error alert is currently presented or not.
     // This property is used to control the presentation of the error alert view in SwiftUI.
     @Published var isErrorAlertPresented = false
@@ -35,13 +35,12 @@ class HomeViewModel: ObservableObject, ErrorHandlable {
     /// A list of appliance IDs used for fetching appliances from the remote service.
     private let ids: [String]
     private let remoteService: RemoteServiceProtocol
-    
-    
+
     /// A set of `AnyCancellable` objects for managing Combine subscriptions.
     var bag: Set<AnyCancellable> = []
-    
+
     // MARK: - Methods
-    
+
     /// Initializes the view model with the given appliance IDs.
     ///
     /// - Parameter ids: A list of appliance IDs used for fetching appliances from the remote service.
@@ -49,7 +48,7 @@ class HomeViewModel: ObservableObject, ErrorHandlable {
         self.ids = ids
         self.remoteService = remoteService
     }
-    
+
     /// Fetches appliances from the remote service using the appliance IDs.
     ///
     /// This method iterates through the list of appliance IDs, fetching each appliance from the remote
@@ -74,7 +73,7 @@ class HomeViewModel: ObservableObject, ErrorHandlable {
                 .store(in: &bag)
         }
     }
-    
+
     /// Shows an error alert view to the user.
     ///
     /// This method updates the `error` property with the given error parameter, and sets the

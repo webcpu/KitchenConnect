@@ -8,12 +8,13 @@ excluded:
   - "DerivedData"
   - "Frameworks"
 analyzer_rules:
-  - unused_private_declaration
   - unused_import
+disabled_rules:
+  - identifier_name
+  - line_length
+  - strict_fileprivate
 opt_in_rules:
   - empty_count
-  - explicit_acl
-  - explicit_top_level_acl
   - trailing_closure
   - force_unwrapping
   - fatal_error_message
@@ -26,28 +27,6 @@ opt_in_rules:
   - implicitly_unwrapped_optional
   - notification_center_detachment
   - compiler_protocol_init
-  - strict_fileprivate
   - switch_case_alignment
   - syntactic_sugar
   - weak_delegate
-rule_configurations:
-  line_length:
-    warning: 120
-    ignores_function_declarations: true
-    ignores_comments: true
-  file_length:
-    warning: 600
-  function_body_length:
-    warning: 50
-  type_body_length:
-    warning: 300
-  identifier_name:
-    min_length:
-      warning: 3
-    max_length:
-      warning: 40
-  vertical_whitespace:
-    max_empty_lines: 1
-  cyclomatic_complexity:
-    warning: 10
-

@@ -18,10 +18,10 @@ import Foundation
 protocol ErrorHandlable: ObservableObject {
     /// The error that occurred, or `nil` if no error has occurred.
     var error: Error? { get set }
-    
+
     /// A boolean flag indicating whether an error alert view is currently presented to the user.
     var isErrorAlertPresented: Bool { get set }
-    
+
     /// Shows an error message to the user.
     ///
     /// Implementing view models must provide a method to show an error message to the user. This method
@@ -32,4 +32,3 @@ protocol ErrorHandlable: ObservableObject {
     /// - Parameter error: The error to display to the user.
     func showError(error: Error)
 }
-

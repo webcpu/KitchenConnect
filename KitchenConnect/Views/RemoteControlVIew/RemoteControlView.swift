@@ -17,47 +17,48 @@ struct RemoteControlView: View {
     #if DEBUG
     @ObservedObject var iO = injectionObserver
     #endif
-    
+
     /// The presentation mode for the view.
     @Environment(\.presentationMode) var presentationMode
-    
+
     /// The view model for the remote control.
     @StateObject var viewModel: RemoteControlViewModel
-    
+
     /// Initializes a new instance of the view with the specified appliance.
     ///
     /// - Parameter appliance: The appliance to control.
     init(appliance: Appliance) {
-        _viewModel = StateObject(wrappedValue: RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared))
+        let value = RemoteControlViewModel(appliance: appliance, remoteService: RemoteService.shared)
+        _viewModel = StateObject(wrappedValue: value)
     }
 
     var body: some View {
         VStack {
             Spacer()
-            
+
             // Display the control header view
             ControlHeaderView(viewModel: viewModel)
-            
+
             Spacer()
-            
+
             // Display the control view
             ControlsView(viewModel: viewModel)
-            
+
             Spacer()
-            
+
             // Display the switch button for turning the appliance on or off
             SwitchButton(text: viewModel.appliance.state == "Off" ? "TURN ON" : "TURN OFF", action: viewModel.toggleApplianceState)
-            
+
             Spacer()
         }
-        
+
         .withDefaultPadding()
         .withCustomBackground()
         .withNavigationBar(
-            leading: BackButton() {
+            leading: BackButton {
                 presentationMode.wrappedValue.dismiss()
             },
-            trailing: MoreButton() {
+            trailing: MoreButton {
                 // Do something
             }
         )
@@ -73,12 +74,12 @@ fileprivate extension View {
     func withDefaultPadding() -> some View {
         self.padding(.horizontal, 16)
     }
-    
+
     /// Adds a custom background color to the view.
     func withCustomBackground() -> some View {
         self.background(Color.customBackground)
     }
-    
+
     /// Adds a navigation bar to the view with the specified leading and trailing items.
     ///
     /// - Parameters:
@@ -91,7 +92,7 @@ fileprivate extension View {
         self.navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: leading, trailing: trailing)
     }
-    
+
     /// Displays an error alert when an error occurs.
     ///
     /// - Parameters:
@@ -108,7 +109,6 @@ fileprivate extension View {
     }
 }
 
-
 // MARK: - ControlHeaderView
 
 /// A view that displays the header for a remote control.
@@ -118,14 +118,14 @@ fileprivate extension View {
 struct ControlHeaderView: View {
     /// The view model for the remote control.
     @ObservedObject var viewModel: RemoteControlViewModel
-    
+
     /// Initializes a new instance of the view with the specified view model.
     ///
     /// - Parameter viewModel: The view model for the remote control.
     init(viewModel: RemoteControlViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         HStack(alignment: .top) {
             VStack {
@@ -133,14 +133,14 @@ struct ControlHeaderView: View {
                 Text(viewModel.appliance.name)
                     .subtitle2()
                     .foregroundColor(Color.customHeroContent)
-                
+
                 // Display the state of the appliance
                 Text(viewModel.appliance.state)
                     .h2Headline()
                     .accessibility(identifier: "remote-control-appliance-\(viewModel.appliance.applianceId)")
             }
             .padding(.leading, 8)
-            
+
             // Display an icon representing the type of appliance
             Spacer()
             Image("Oven").padding(.trailing, -100)
@@ -157,14 +157,14 @@ struct ControlHeaderView: View {
 struct ControlsView: View {
     /// The view model for the remote control.
     @ObservedObject var viewModel: RemoteControlViewModel
-    
+
     /// Initializes a new instance of the view with the specified view model.
     ///
     /// - Parameter viewModel: The view model for the remote control.
     init(viewModel: RemoteControlViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -174,15 +174,23 @@ struct ControlsView: View {
                     .foregroundColor(Color.customHeadLineTitle)
                 Spacer()
             }
-            
+
             HStack(spacing: 16) {
                 // Display the program control view
-                ControlView(appliance: viewModel.appliance, imageName: viewModel.appliance.program.rawValue.capitalized, description: "Function", data: viewModel.appliance.program.rawValue.capitalized)
-                
+                ControlView(appliance: viewModel.appliance, imageName: programName, description: "Function", data: programName)
+
                 // Display the temperature control view
-                ControlView(appliance: viewModel.appliance, imageName: "Temperature", description: "Temperature", data: viewModel.appliance.displayTemperatureWithUnit)
+                ControlView(appliance: viewModel.appliance, imageName: "Temperature", description: "Temperature", data: displayTemperatureWithUnit)
             }
         }
+    }
+
+    var programName: String {
+        viewModel.appliance.program.rawValue.capitalized
+    }
+
+    var displayTemperatureWithUnit: String {
+        viewModel.appliance.displayTemperatureWithUnit
     }
 }
 
@@ -193,7 +201,7 @@ struct ControlView: View {
     let imageName: String
     let description: String
     let data: String
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -224,7 +232,7 @@ struct ControlView: View {
 struct SwitchButton: View {
     let text: String
     let action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
             Text(text)
@@ -247,8 +255,8 @@ struct PrimaryButtonStyle: ViewModifier {
     }
 }
 
-//struct RemoteControlView_Previews: PreviewProvider {
+// struct RemoteControlView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        RemoteControlView(appliance: Appliance())
 //    }
-//}
+// }

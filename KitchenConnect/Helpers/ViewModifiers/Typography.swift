@@ -77,27 +77,27 @@ extension View {
     func subtitle1() -> some View {
         self.modifier(Subtitle1())
     }
-    
+
     func subtitle2() -> some View {
         self.modifier(Subtitle2())
     }
-    
+
     func body2() -> some View {
         self.modifier(Body2())
     }
-    
+
     func button1() -> some View {
         self.modifier(Button1())
     }
-    
+
     func h1Headline() -> some View {
         self.modifier(H1Headline())
     }
-    
+
     func h2Headline() -> some View {
         self.modifier(H2Headline())
     }
-    
+
     func h4Headline() -> some View {
         self.modifier(H4Headline())
     }
