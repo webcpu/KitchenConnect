@@ -10,14 +10,14 @@ import Foundation
 // MARK: - Appliance
 
 /// A struct representing a home appliance.
-struct Appliance: Codable{
-    
+struct Appliance: Codable {
+
     /// The unique identifier of the appliance.
     var applianceId: String
-    
+
     /// The data for the appliance.
     var applianceData: ApplianceData
-    
+
     /// The current properties of the appliance.
     var properties: Properties
 }
@@ -37,7 +37,7 @@ struct ApplianceData: Codable {
 
 /// A struct representing the current properties of an appliance.
 struct Properties: Codable {
-    
+
     /// The current door state of the appliance.
     let doorState: DoorState
 
@@ -113,17 +113,17 @@ extension Appliance {
     var name: String {
         return applianceData.applianceName
     }
-    
+
     /// The current state of the appliance as a string ("Off" or "On").
     var state: String {
         return properties.applianceState == .readyToStart ? "Off" : "On"
     }
-    
+
     /// The current program of the appliance.
     var program: Program {
         return properties.program
     }
-    
+
     /// The current temperature of the appliance as a string with the appropriate temperature unit.
     var displayTemperatureWithUnit: String {
         let celsiusSymbol = "\u{2103}" // Celsius degree symbol
@@ -131,7 +131,7 @@ extension Appliance {
         let symbol = properties.temperatureRepresentation != .celsius ? fahrenheitSymbol : celsiusSymbol
         return "\(properties.displayTemperature)\(symbol)"
     }
-    
+
     /// The possible actions that can be performed on an appliance.
     enum ApplianceAction {
         case turnOn
@@ -139,7 +139,7 @@ extension Appliance {
         case changeProgram(Program)
         case changeTemperature(Int)
     }
-    
+
     /// Performs the specified action on the appliance.
     ///
     /// - Parameter action: The action to perform on the appliance.
@@ -155,9 +155,9 @@ extension Appliance {
             properties.targetTemperature = newTemperature
         }
     }
-    
+
     // MARK: - Helper Methods
-    
+
     /// Returns an updated `Appliance` with the specified program.
     ///
     /// - Parameter newProgram: The new program for the appliance.
@@ -166,7 +166,7 @@ extension Appliance {
         updatedAppliance.properties.program = newProgram
         return updatedAppliance
     }
-    
+
     /// Returns an updated `Appliance` with the specified temperature.
     ///
     /// - Parameter newTemperature: The new target temperature for the appliance.
@@ -175,7 +175,7 @@ extension Appliance {
         updatedAppliance.properties.targetTemperature = newTemperature
         return updatedAppliance
     }
-    
+
     /// Returns an updated `Appliance` with the specified state.
     ///
     /// - Parameter newState: The new state for the appliance.

@@ -28,12 +28,12 @@ public let injectionObserver = InjectionObserver()
 
 public class InjectionObserver: ObservableObject {
     @Published var injectionNumber = 0
-    var cancellable: AnyCancellable? = nil
+    var cancellable: AnyCancellable?
     let publisher = PassthroughSubject<Void, Never>()
     init() {
         cancellable = NotificationCenter.default.publisher(for:
                                                             Notification.Name("INJECTION_BUNDLE_NOTIFICATION"))
-        .sink { [weak self] change in
+        .sink { [weak self] _ in
             self?.injectionNumber += 1
             self?.publisher.send()
         }
@@ -45,7 +45,7 @@ extension View {
         _ = loadInjection
         return AnyView(self)
     }
-    public func onInjection(bumpState: @escaping () -> ()) -> some View {
+    public func onInjection(bumpState: @escaping () -> Void) -> some View {
         return self
             .onReceive(injectionObserver.publisher, perform: bumpState)
             .eraseToAnyView()
@@ -54,9 +54,8 @@ extension View {
 #else
 extension View {
     public func eraseToAnyView() -> some View { return self }
-    public func onInjection(bumpState: @escaping () -> ()) -> some View {
+    public func onInjection(bumpState: @escaping () -> Void) -> some View {
         return self
     }
 }
 #endif
-

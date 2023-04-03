@@ -352,6 +352,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECD7CEBB29D830CB000DBC64 /* Build configuration list for PBXNativeTarget "KitchenConnect" */;
 			buildPhases = (
+				ECD7CF0429DADA4B000DBC64 /* Lint */,
 				ECD7CE9329D830C9000DBC64 /* Sources */,
 				ECD7CE9429D830C9000DBC64 /* Frameworks */,
 				ECD7CE9529D830C9000DBC64 /* Resources */,
@@ -479,6 +480,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECD7CF0429DADA4B000DBC64 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  git status --porcelain | grep -v '^ \\?D' | cut -c 4- | sed 's/.* -> //' | tr -d '\"' | while read file \n  do\n    if [[ \"$file\" == *.swift ]]; then\n        swiftlint \"$file\" --fix\n    fi\n  done\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECD7CE9329D830C9000DBC64 /* Sources */ = {
@@ -843,8 +866,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

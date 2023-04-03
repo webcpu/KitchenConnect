@@ -14,13 +14,13 @@ struct HomeView: View {
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
-    
+
     @StateObject var viewModel = HomeViewModel(remoteService: RemoteService.shared)
-    
+
     init() {
         initNavigationBarAppearance()
     }
-    
+
     var body: some View {
         NavigationView {
             ApplianceListView(viewModel: viewModel)
@@ -63,12 +63,12 @@ struct ApplianceListView: View {
 /// A SwiftUI view that represents a navigation link for an individual appliance.
 struct ApplianceNavigationLink: View {
     let appliance: Appliance
-    
+
     var body: some View {
         NavigationLink(destination: RemoteControlView(appliance: appliance)) {
             ApplianceCellView(appliance: appliance)
                 .padding(.horizontal, 16)
-            
+
         }
         .accessibility(identifier: "appliance-\(appliance.applianceId)")
     }
@@ -77,22 +77,22 @@ struct ApplianceNavigationLink: View {
 // MARK: - ApplianceCellView
 
 /// A SwiftUI view that represents an individual appliance cell.
-struct ApplianceCellView : View {
+struct ApplianceCellView: View {
     var appliance: Appliance
-    
+
     var body: some View {
         VStack(spacing: 0) {
             Text(appliance.name)
                 .subtitle2()
                 .padding(.top, 24)
                 .accessibility(identifier: "applianceName")
-            
+
             Image("Oven")
                 .resizable()
                 .scaledToFill()
                 .padding(.top, 24)
                 .padding(.horizontal, 72)
-            
+
             VStack(spacing: 8) {
                 Text(appliance.state)
                     .h4Headline()
@@ -133,4 +133,3 @@ struct ContentView_Previews: PreviewProvider {
         HomeView()
     }
 }
-

@@ -12,12 +12,12 @@ import SwiftUI
 struct BackButton: View {
     let title: String
     let action: () -> Void
-    
+
     init(title: String = "", action: @escaping () -> Void) {
         self.title = title
         self.action = action
     }
-    
+
     var body: some View {
         Button(action: {
             action()
@@ -41,13 +41,13 @@ struct MoreButton: View {
     let title: String
     let foregroundColor: Color
     let action: () -> Void
-    
+
     init(title: String = "", foregroundColor: Color = Color.white, action: @escaping () -> Void) {
         self.title = title
         self.foregroundColor = foregroundColor
         self.action = action
     }
-    
+
     var body: some View {
         Button(action: {
             action()
