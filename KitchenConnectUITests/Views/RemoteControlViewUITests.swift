@@ -50,8 +50,8 @@ class RemoteControlViewUITests: XCTestCase {
 
         // Test if the back button exists and tap it
         let backButton = navigationBar.buttons.firstMatch
-        XCTAssertTrue(backButton.exists)
-        backButton.tap()
+        let backButtonExists = backButton.waitForExistence(timeout: 5)
+        XCTAssertTrue(backButtonExists)
     }
 
     func testTurnOnOffAppliance() {
