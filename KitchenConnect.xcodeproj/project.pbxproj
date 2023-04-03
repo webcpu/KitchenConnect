@@ -34,6 +34,7 @@
 		ECD7CEFB29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */; };
 		ECD7CEFF29D974A8000DBC64 /* NavigationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CEFE29D974A8000DBC64 /* NavigationButtons.swift */; };
 		ECD7CF0129D979F4000DBC64 /* RemoteControlViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CF0029D979F4000DBC64 /* RemoteControlViewUITests.swift */; };
+		ECD7CF0329DAB8DE000DBC64 /* ErrorHandlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7CF0229DAB8DE000DBC64 /* ErrorHandlable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		ECD7CEFA29D8BEA8000DBC64 /* RemoteControlViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModelTests.swift; sourceTree = "<group>"; };
 		ECD7CEFE29D974A8000DBC64 /* NavigationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtons.swift; sourceTree = "<group>"; };
 		ECD7CF0029D979F4000DBC64 /* RemoteControlViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewUITests.swift; sourceTree = "<group>"; };
+		ECD7CF0229DAB8DE000DBC64 /* ErrorHandlable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			children = (
 				ECD7CEEA29D86691000DBC64 /* HomeViewModel.swift */,
 				ECD7CEF829D8AEAC000DBC64 /* RemoteControlViewModel.swift */,
+				ECD7CF0229DAB8DE000DBC64 /* ErrorHandlable.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				ECD7CE9D29D830C9000DBC64 /* HomeView.swift in Sources */,
 				ECD7CEF029D86BBF000DBC64 /* RemoteControlView.swift in Sources */,
 				ECD7CE9B29D830C9000DBC64 /* KitchenConnectApp.swift in Sources */,
+				ECD7CF0329DAB8DE000DBC64 /* ErrorHandlable.swift in Sources */,
 				ECD7CEF529D89AAF000DBC64 /* Typography.swift in Sources */,
 				ECD7CEE229D85729000DBC64 /* Appliance.swift in Sources */,
 				ECD7CEF929D8AEAC000DBC64 /* RemoteControlViewModel.swift in Sources */,

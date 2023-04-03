@@ -25,6 +25,13 @@ struct HomeView: View {
         NavigationView {
             ApplianceListView(viewModel: viewModel)
         }
+        .alert(isPresented: $viewModel.isErrorAlertPresented) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(viewModel.error?.localizedDescription ?? "Unknown error"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
         .task {
             viewModel.fetchAppliances()
         }

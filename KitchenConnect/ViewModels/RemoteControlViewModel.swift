@@ -30,6 +30,14 @@ class RemoteControlViewModel: ObservableObject {
     /// The target temperature for the appliance.
     @Published var targetTemperature: Int
     
+    // A property to store the error that occurred. When an error occurs, it is assigned to this property
+    // so that it can be displayed to the user.
+    @Published var error: Error?
+    
+    // A Boolean property that determines whether the error alert is currently presented or not.
+    // This property is used to control the presentation of the error alert view in SwiftUI.
+    @Published var isErrorAlertPresented = false
+    
     /// A set of `AnyCancellable` objects for managing Combine subscriptions.
     var cancellables: Set<AnyCancellable> = []
 
@@ -61,6 +69,7 @@ class RemoteControlViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
+                    self.showError(error: error)
                     print("Error: \(error)")
                 case .finished:
                     print("Completed")
@@ -106,5 +115,17 @@ class RemoteControlViewModel: ObservableObject {
                 self.appliance = updatedAppliance
             })
             .store(in: &cancellables)
+    }
+    
+    /// Shows an error alert view to the user.
+    ///
+    /// This method updates the `error` property with the given error parameter, and sets the
+    /// `isErrorAlertPresented` property to `true`. This triggers the presentation of an error alert view
+    /// in the SwiftUI view hierarchy, displaying the error message to the user.
+    ///
+    /// - Parameter error: The error to display to the user.
+    func showError(error: Error) {
+        self.error = error
+        self.isErrorAlertPresented = true
     }
 }

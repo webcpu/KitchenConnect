@@ -17,16 +17,25 @@ import Combine
 /// This class handles fetching appliance data and managing the state of the view. It contains a dictionary
 /// of appliances, which is updated when appliances are fetched from the remote service.
 ///
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, ErrorHandlable {
     
     // MARK: - Properties
 
     /// An ordered dictionary of appliances, with the appliance ID as the key.
     @Published var appliances: OrderedDictionary<String, Appliance> = [:]
+    
+    // A property to store the error that occurred. When an error occurs, it is assigned to this property
+    // so that it can be displayed to the user.
+    @Published var error: Error?
+    
+    // A Boolean property that determines whether the error alert is currently presented or not.
+    // This property is used to control the presentation of the error alert view in SwiftUI.
+    @Published var isErrorAlertPresented = false
 
     /// A list of appliance IDs used for fetching appliances from the remote service.
     private let ids: [String]
     private let remoteService: RemoteServiceProtocol
+    
     
     /// A set of `AnyCancellable` objects for managing Combine subscriptions.
     var bag: Set<AnyCancellable> = []
@@ -53,6 +62,7 @@ class HomeViewModel: ObservableObject {
                 .sink(receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
+                        self.showError(error: error)
                         print("Error: \(error)")
                     case .finished:
                         print("Completed")
@@ -61,7 +71,19 @@ class HomeViewModel: ObservableObject {
                     self.appliances[appliance.applianceId] = appliance
                     print("Appliance: \(appliance)")
                 })
-                            .store(in: &bag)
+                .store(in: &bag)
         }
+    }
+    
+    /// Shows an error alert view to the user.
+    ///
+    /// This method updates the `error` property with the given error parameter, and sets the
+    /// `isErrorAlertPresented` property to `true`. This triggers the presentation of an error alert view
+    /// in the SwiftUI view hierarchy, displaying the error message to the user.
+    ///
+    /// - Parameter error: The error to display to the user.
+    func showError(error: Error) {
+        self.error = error
+        self.isErrorAlertPresented = true
     }
 }
