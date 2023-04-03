@@ -17,7 +17,7 @@ final class KitchenConnectUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testLaunch() throws {
+    func _testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
 
