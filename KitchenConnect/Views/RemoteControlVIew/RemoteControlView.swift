@@ -46,12 +46,14 @@ struct RemoteControlView: View {
             Spacer()
             
             // Display the switch button for turning the appliance on or off
-            SwitchButton(text: viewModel.appliance.state == "Off" ? "TURN ON" : "TURN OFF", action: {viewModel.toggleApplianceState()})
+            SwitchButton(text: viewModel.appliance.state == "Off" ? "TURN ON" : "TURN OFF", action: viewModel.toggleApplianceState)
             
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
+        
+        .withDefaultPadding()
+        .withCustomBackground()
+        .withNavigationBar(
             leading: BackButton() {
                 presentationMode.wrappedValue.dismiss()
             },
@@ -59,10 +61,53 @@ struct RemoteControlView: View {
                 // Do something
             }
         )
-        .padding(.horizontal, 16)
+        .withErrorAlert(error: viewModel.error, isPresented: $viewModel.isErrorAlertPresented)
         .eraseToAnyView()
     }
 }
+
+// MARK: - RemoteControlView Helpers
+
+fileprivate extension View {
+    /// Adds default horizontal padding to the view.
+    func withDefaultPadding() -> some View {
+        self.padding(.horizontal, 16)
+    }
+    
+    /// Adds a custom background color to the view.
+    func withCustomBackground() -> some View {
+        self.background(Color.customBackground)
+    }
+    
+    /// Adds a navigation bar to the view with the specified leading and trailing items.
+    ///
+    /// - Parameters:
+    ///   - leading: The leading item to display in the navigation bar.
+    ///   - trailing: The trailing item to display in the navigation bar.
+    func withNavigationBar<Leading: View, Trailing: View>(
+        leading: Leading,
+        trailing: Trailing
+    ) -> some View {
+        self.navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: leading, trailing: trailing)
+    }
+    
+    /// Displays an error alert when an error occurs.
+    ///
+    /// - Parameters:
+    ///   - error: The error to display in the alert view.
+    ///   - isPresented: A binding to a Boolean value that determines whether the alert is displayed.
+    func withErrorAlert(error: Error?, isPresented: Binding<Bool>) -> some View {
+        self.alert(isPresented: isPresented) {
+            Alert(
+                title: Text("Error"),
+                message: Text(error?.localizedDescription ?? "Unknown error"),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+    }
+}
+
 
 // MARK: - ControlHeaderView
 
